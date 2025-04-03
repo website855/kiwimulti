@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiwi Kids Homepage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Apply Linear Gradient Background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e1c158, #619a46);
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: auto;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: white;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* Section Animations */
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-in-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 80px;
+        }
+
+        .hero img {
+            width: 75%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Find Location Button */
+        .find-location-container {
+            padding: 10px;
+        }
+
+        .cta {
+            background-color: #d4af37;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta:hover {
+            background-color: #b48f2e;
+        }
+
+        /* Kiwi Kids Learning Section */
+        .learning-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 80px 10%;
+            text-align: left;
+        }
+
+        .learning-section img {
+            width: 40%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .learning-content {
+            width: 50%;
+        }
+
+        .learning-content h2 {
+            font-size: 36px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .learning-content p {
+            font-size: 20px;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* Kiwi Kids Meaning Section */
+        .kiwi-kids-meaning {
+            position: relative;
+            background: url('pic2.png') center/cover no-repeat;
+            padding: 120px 10%;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .kiwi-kids-meaning h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .kiwi-kids-meaning p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+    .skills-section {
+        padding: 100px 10%;
+        text-align: center;
+        background: linear-gradient(to right, #E1C158, #619A46); /* SAME BACKGROUND */
+    }
+
+    .skills-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .skills-content h2 {
+        font-size: 42px;
+        color: #fff;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .skills-content p {
+        font-size: 20px;
+        color: #f8f9fa;
+        line-height: 1.6;
+    }
+
+    /* Three Feature Boxes */
+    .skills-box-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+    .skills-box {
+        flex: 1;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .skills-box:hover {
+        transform: translateY(-5px);
+    }
+
+    .skills-img {
+        width: 100%;
+        max-height: 150px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .skills-icon {
+        width: 60px;
+        height: 60px;
+        background: #E1C158;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .skills-icon i {
+        font-size: 28px;
+        color: #fff;
+    }
+
+    .skills-box h3 {
+        margin-top: 40px;
+        font-size: 24px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .skills-box p {
+        font-size: 16px;
+        color: #555;
+        margin-top: 10px;
+    }
+
+    /* Appear & Disappear Animation */
+    .hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Image Section */
+    .image-section {
+        padding: 100px 10%;
+        background: linear-gradient(to right, #E1C158, #619A46); /* SAME BACKGROUND */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container {
+        display: flex;
+        gap: 20px;
+        width: 100%;
+        max-width: 1100px;
+    }
+
+    /* Big Image on Left */
+    .image-big img {
+        width: 100%;
+        height: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Two Small Images on Right */
+    .image-small-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .image-small img {
+        width: 100%;
+        height: 100%;
+        max-height: 240px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Appear & Disappear Animation */
+    .hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Content Section */
+    .content-section {
+        background: linear-gradient(to right, #E1C158, #619A46); /* SAME BACKGROUND */
+        padding: 80px 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content-container {
+        width: 100%;
+        max-width: 1100px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    /* Individual Content Box */
+    .content-box {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    /* Reverse Layout for Second Content */
+    .reverse {
+        flex-direction: row-reverse;
+    }
+
+    /* Image Styling */
+    .content-image img {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Text Styling */
+    .content-text {
+        max-width: 500px;
+    }
+
+    .content-text h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .content-text p {
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+    /* Appear & Disappear Animation */
+    .hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Full-Screen Section */
+    .unleash-section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url('pic2.png') no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Glowing Text */
+    .unleash-content h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: white;
+        text-transform: uppercase;
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+        0% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
+        100% { text-shadow: 0 0 25px rgba(255, 255, 255, 1); }
+    }
+
+    /* CTA Button */
+    .cta-button {
+        margin-top: 20px;
+        background: #E1C158;
+        color: #000;
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-weight: bold;
+    }
+
+    .cta-button:hover {
+        background: #619A46;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* Appear & Disappear Animation */
+    .hidden {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Footer Styling */
+#footer {
+    background: linear-gradient(to right, #e1c158, #619a46);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+    text-align: left;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #d4af37; /* Gold hover effect */
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* Appear/Disappear Animation */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Background container for bubbles */
+.bubble-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Keeps it behind all content */
+}
+
+/* Styling the individual bubbles */
+.bubble {
+    position: absolute;
+    bottom: -100px; /* Start offscreen */
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    opacity: 0;
+    animation: floatUp linear infinite;
+}
+
+/* Keyframes for floating bubbles */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* Section Styling */
+.learning-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    background: url('your-background-image.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+/* Content Styling */
+.learning-content {
+    max-width: 800px;
+}
+
+/* Heading Styling */
+.learning-content h2 {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Paragraph Styling */
+.learning-content p {
+    font-size: 20px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Appear Animation */
+.hidden {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Section Styling */
+.three-boxes-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 50px 0;
+}
+
+/* Box Container */
+.box {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 40px;
+}
+
+/* Box Content */
+.box-content {
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Box Headings */
+.box-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #1e00ff;
+}
+
+.box-content h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.box-content h4 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Box Text */
+.box-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Alignments */
+.box-right {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.box-left {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Section Styling */
+.three-images-section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+/* Image Container */
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Image Box */
+.image-box {
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Small Images */
+.small-image {
+    width: 25%;
+}
+
+.small-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Big Center Image */
+.big-image {
+    width: 40%;
+}
+
+.big-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.image-box img:hover {
+    transform: scale(1.05);
+}
+
+/* Fullscreen Background Image */
+.unleash-section {
+    background: url('background.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 50px;
+    position: relative;
+}
+
+/* Container (No Background Box) */
+.unleash-container {
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Heading Styling */
+.unleash-container h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Paragraph Styling */
+.unleash-container p {
+    font-size: 1.3rem;
+    margin: 20px 0;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Find Location Button */
+.btn-find-location {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background: #ff6600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.btn-find-location:hover {
+    transform: scale(1.1);
+    background: #ff4500;
+}
+
+/* Fade-In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* General Hidden Class */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Visible Class (Activated When in View) */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Three Images Section */
+.three-images-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background: url('your-background-image.jpg') no-repeat center center/cover; /* Keep the same background */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 90%;
+}
+
+/* Make Small Images Bigger */
+.image-box.small-image {
+    width: 35%; /* Increased size */
+}
+
+/* Make Center Image Bigger */
+.image-box.big-image {
+    width: 60%; /* Increased size */
+}
+
+/* Make Sure All Images are Responsive */
+.image-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Three Boxes Section */
+.three-boxes-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    background: url('your-background-image.jpg') no-repeat center center/cover; /* Same background */
+}
+
+/* Container for the boxes */
+.box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 80%;
+}
+
+/* Individual Boxes */
+.box {
+    position: relative;
+    padding: 50px;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 15px;
+    text-align: center;
+    overflow: hidden;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Appear Animation */
+.box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Box Content Styling (No Black Box) */
+.box-content {
+    background: none; /* Remove any background */
+    padding: 20px;
+}
+
+/* Remove Black Box Effect */
+.box::before {
+    content: none; /* Completely removes the overlay */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .box-container {
+        width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header with Navbar -->
+    <header>
+        <div class="logo">
+            <img src="logo.avif" alt="Kiwi Kids Logo" class="logo-img">
+            <span class="logo-text">Kiwi Kids</span>
+        </div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Franchising</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>  
+
+    <!-- Hero Section -->
+    <section class="hero hidden" id="hero">
+        <img src="programs.png" alt="Kids Learning">
+    </section>
+
+    <!-- Find Location Button Below Image -->
+    <div class="find-location-container hidden" id="findLocationContainer">
+        <button class="cta">Find Location</button>
+    </div>
+
+    <!-- Learning Should Never Stop Section -->
+<section class="learning-section hidden">
+    <div class="learning-content">
+        <h2>LEARNING SHOULD <br> NEVER STOP</h2>
+        <p>At Kiwi Kids, we believe that every opportunity for fun is also an opportunity to learn. 
+        That is why we offer so many unique opportunities, for both parents and students!</p>
+    </div>
+</section>
+
+<!-- Three Boxes Section -->
+<section class="three-boxes-section">
+    <div class="box-container">
+        <!-- Box 1: Parent's Night Out -->
+        <div class="box box-right" style="background-image: url('bgl.png');">
+            <div class="box-content">
+                <h3>SUMMER & YEAR ROUND</h3>
+                <h2>KIWI KIDS</h2>
+                <h4>PARENT'S NIGHT OUT</h4>
+                <p>Our parents love the opportunity to drop their children off at our safe and secure Dojos 
+                   where they will be surrounded by learning opportunities while they have the opportunity 
+                   to unwind however they see fit in after-school coding activities!</p>
+            </div>
+        </div>
+
+        <!-- Box 2: Birthday Parties -->
+        <div class="box box-left" style="background-image: url('bgr.png');">
+            <div class="box-content">
+                <h3>SUMMER & YEAR ROUND</h3>
+                <h2>KIWI KIDS</h2>
+                <h4>BIRTHDAY PARTIES</h4>
+                <p>Our Dojos are also places for birthday parties! Celebrate your child's birthday in style 
+                   and let them show off all they have learned to their friends! Develop video games, engage 
+                   in fun STEM activities, and even play the games your child developed! 
+                   We'll work with you to plan the ultimate venue and unforgettable party.</p>
+            </div>
+        </div>
+
+        <!-- Box 3: Clubs -->
+        <div class="box box-right" style="background-image: url('bgl.png');">
+            <div class="box-content">
+                <h3>SUMMER & YEAR ROUND</h3>
+                <h2>KIWI KIDS</h2>
+                <h4>CLUBS</h4>
+                <p>Big, collaborative projects built by teams of like-minded Ninjas and springing from 
+                   their own creativity. It’s a great way for kids to learn teamwork and problem-solving 
+                   skills while creating in the games they already love!</p>
+            </div>
+        </div>
+
+        <!-- Box 2: Birthday Parties -->
+        <div class="box box-left" style="background-image: url('bgr.png');">
+            <div class="box-content">
+                <h3>SUMMER & YEAR ROUND</h3>
+                <h2>KIWI KIDS</h2>
+                <h4>HOME SCHOOLING</h4>
+                <p>Kiwi Kids' Homeschooling program aligns with rigorous
+                     Computer Science (CS) standards, ensuring that your child 
+                     receives a comprehensive and high-quality education in 
+                     coding and computer science.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Three Images Section -->
+<section class="three-images-section">
+    <div class="image-container">
+        <div class="image-box small-image">
+            <img src="lefts.webp" alt="Left Image">
+        </div>
+        <div class="image-box big-image">
+            <img src="centre.webp" alt="Center Big Image">
+        </div>
+        <div class="image-box small-image">
+            <img src="rights.webp" alt="Right Image">
+        </div>
+    </div>
+</section>
+
+<!-- Unleash Section -->
+<section class="unleash-section">
+    <div class="unleash-container">
+        <h1>UNLEASH THEIR <br> INNER KIWI KID TODAY</h1>
+        <p>At Kiwi Kids, we believe that every opportunity for fun is also an opportunity to learn. 
+            That is why we offer so many unique opportunities, for both parents and students!</p>
+        <a href="#" class="btn-find-location">Find Location</a>
+    </div>
+</section>
+
+<!-- Footer Section -->
+<section id="footer-section" class="hidden">
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="#">Our Vision</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Black Belt Ninjas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Franchise</h3>
+                <ul>
+                    <li><a href="#">US & Canada</a></li>
+                    <li><a href="#">United Kingdom</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Center</h3>
+                <ul>
+                    <li><a href="#">Find A Center</a></li>
+                    <li><a href="#">Franchisee Dashboard</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section social">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><img src="facebook-removebg-preview.png" alt="Facebook"></a>
+                    <a href="#"><img src="insta-removebg-preview.png" alt="Instagram"></a>
+                    <a href="#"><img src="twitter-removebg-preview.png" alt="Twitter"></a>
+                    <a href="#"><img src="linkedin-removebg-preview.png" alt="LinkedIn"></a>
+                </div>
+                <p>Kiwi Kids © 2024 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".hidden");
+
+    function checkScroll() {
+        sections.forEach(section => {
+            let sectionTop = section.getBoundingClientRect().top;
+            let windowHeight = window.innerHeight;
+
+            if (sectionTop < windowHeight * 0.85) {
+                section.classList.add("show");
+            } else {
+                section.classList.remove("show");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkScroll);
+    checkScroll(); // Run on page load
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const bubbleContainer = document.createElement("div");
+    bubbleContainer.classList.add("bubble-container");
+    document.body.appendChild(bubbleContainer);
+
+    function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        let size = Math.random() * 40 + 10; // Random size between 10px and 50px
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+
+        bubble.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        bubble.style.animationDuration = `${Math.random() * 5 + 5}s`; // Random speed between 5-10s
+
+        bubbleContainer.appendChild(bubble);
+
+        setTimeout(() => {
+            bubble.remove();
+        }, 10000); // Remove bubble after animation
+    }
+
+    setInterval(createBubble, 500); // Create a new bubble every 0.5s
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const boxes = document.querySelectorAll(".box");
+
+    function revealBoxes() {
+        const triggerBottom = window.innerHeight * 0.8;
+
+        boxes.forEach(box => {
+            const boxTop = box.getBoundingClientRect().top;
+
+            if (boxTop < triggerBottom) {
+                box.classList.add("show");
+            } else {
+                box.classList.remove("show"); // Fade out when scrolling up
+            }
+        });
+    }
+
+    window.addEventListener("scroll", revealBoxes);
+    revealBoxes(); // Run on page load
+});
+
+    </script>
+
+</body>
+</html>
